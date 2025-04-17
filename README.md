@@ -94,7 +94,7 @@ After running the model to convergence, there will be a number of interesting ou
 - Assignment
     - `{mode}_skims_{period}.mtx`: Skim matrices by period and mode
     - `hourly_vehicle_trips_{period}.mtx`: Hourly trips originating in each zone and destined for each other zone, by period. Note that this is in O-D rather than P-A format.
-    - `link_flows_{period}.bin`: Table with link IDs matching `road_network.dbd`, with total volumes and VMT for each link
+    - `link_flows_{period}.bin`: Table with link IDs matching `road_network.dbd`, with total volumes and VMT for each link, as well as travel times.
 
 ## Known issues
 
