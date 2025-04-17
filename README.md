@@ -78,6 +78,23 @@ You can run the model by changing "Design or Edit Model" to "Base Year" and pres
 
 Once the model is done, you will see a message that the model converged. The results of the model run will be in a folder called `model_run_<date>` in your inputs folder; we will explore these results extensively next week. Each time you run the model, a new folder is created, to avoid overwriting important results. 
 
+## Output files
+
+After running the model to convergence, there will be a number of interesting output files in the model_run_[date] folder. The main ones are:
+
+- Networks
+    - `road_network.dbd`, `transit_routes.rts` - road and transit routes used in this model run
+- Trip generation
+    - `balanced_productions_attractions.bin`: Forecast trips produced and attracted by each zone, by trip type. Table with columns for TAZ ID and productions and attractions for each zone.
+- Trip distribution
+    - `distributed_pa.mtx`: Matrix containing distributed trips in P-A format (rows are production zone, columns are attraction zone). This file contains one matrix for each trip type.
+- Mode choice
+    - `mode_probabilities_{trip type}.mtx`: Matrix containing probability that a trip produced in a zone will use each mode of travel to get to the attraction zone, split by trip type (HBO, HBW, NHB)
+    - `mode_totals_{period}.mtx`: Matrix containing total number of trips produced in a zone will use each mode of travel to get to the attraction zone.
+- Assignment
+    - `{mode}_skims_{period}.mtx`: Skim matrices by period and mode
+    - `hourly_vehicle_trips_{period}.mtx`: Hourly trips originating in each zone and destined for each other zone, by period. Note that this is in O-D rather than P-A format.
+    - `link_flows_{period}.bin`: Table with link IDs matching `road_network.dbd`, with total volumes and VMT for each link
 
 ## Known issues
 
